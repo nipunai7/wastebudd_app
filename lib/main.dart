@@ -5,6 +5,7 @@ import 'package:wastebudd_app/Screens/onboardScreen.dart';
 
 void main(){
   runApp(MaterialApp(
+    debugShowCheckedModeBanner: false,
     home: OnBoardingPage(),
   ));
 }

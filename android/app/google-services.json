@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "941897166893",
+    "project_id": "wastebuddmobileapp",
+    "storage_bucket": "wastebuddmobileapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:941897166893:android:907fe7ec08e44db047c8a4",
+        "android_client_info": {
+          "package_name": "com.example.wastebudd_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "941897166893-n6kvt4j437olpirsofgkaibku2sq2jd9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBqJQXX4MmVQ4oKIcd7V5BWzkwSoVWSwus"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "941897166893-n6kvt4j437olpirsofgkaibku2sq2jd9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
