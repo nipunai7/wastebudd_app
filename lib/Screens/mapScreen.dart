@@ -30,7 +30,7 @@ class _MapScreenState extends State<MapScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-<<<<<<< HEAD
+
         centerTitle: false,
         title: const Text('Google Maps'),
         actions: [
@@ -178,10 +178,6 @@ class _MapScreenState extends State<MapScreen> {
           .getDirections(origin: _origin.position, destination: pos);
       setState(() => _info = directions);
     }
-=======
-        title: Text("MNK"),
-      ),
-    );
->>>>>>> 12999e04bb84568bf5b31d40343363e6fcef33e4
+//12999e04bb84568bf5b31d40343363e6fcef33e4
   }
 }
