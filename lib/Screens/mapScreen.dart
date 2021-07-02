@@ -29,49 +29,6 @@ class _MapScreenState extends State<MapScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-<<<<<<< HEAD
-        centerTitle: false,
-        title: const Text('Google Maps'),
-        actions: [
-          if (_origin != null)
-            TextButton(
-              onPressed: () =>
-                  _googleMapController.animateCamera(
-                    CameraUpdate.newCameraPosition(
-                      CameraPosition(
-                        target: _origin.position,
-                        zoom: 14.5,
-                        tilt: 50.0,
-                      ),
-                    ),
-                  ),
-              style: TextButton.styleFrom(
-                primary: Colors.green,
-                textStyle: const TextStyle(fontWeight: FontWeight.w600),
-              ),
-              child: const Text('ORIGIN'),
-            ),
-          if (_destination != null)
-            TextButton(
-              onPressed: () =>
-                  _googleMapController.animateCamera(
-                    CameraUpdate.newCameraPosition(
-                      CameraPosition(
-                        target: _destination.position,
-                        zoom: 14.5,
-                        tilt: 50.0,
-                      ),
-                    ),
-                  ),
-              style: TextButton.styleFrom(
-                primary: Colors.blue,
-                textStyle: const TextStyle(fontWeight: FontWeight.w600),
-              ),
-              child: const Text('DEST'),
-            )
-        ],
-      ),
       body: Stack(
         alignment: Alignment.center,
         children: [
@@ -150,10 +107,21 @@ class _MapScreenState extends State<MapScreen> {
       setState(() {
         _origin = Marker(
           markerId: const MarkerId('origin'),
-          infoWindow: const InfoWindow(title: 'Origin'),
+          infoWindow: const InfoWindow(title: 'Waste Budd Company'),
           icon:
           BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueGreen),
           position: pos,
+          onTap: (){
+            _googleMapController.animateCamera(
+              CameraUpdate.newCameraPosition(
+                CameraPosition(
+                  target: _origin.position,
+                  zoom: 14.5,
+                  tilt: 50.0,
+                ),
+              ),
+            );
+          }
         );
         // Reset destination
         _destination = null;
@@ -167,9 +135,20 @@ class _MapScreenState extends State<MapScreen> {
       setState(() {
         _destination = Marker(
           markerId: const MarkerId('destination'),
-          infoWindow: const InfoWindow(title: 'Destination'),
+          infoWindow: const InfoWindow(title: 'Dustbin'),
           icon: BitmapDescriptor.defaultMarkerWithHue(BitmapDescriptor.hueBlue),
           position: pos,
+          onTap:(){
+            _googleMapController.animateCamera(
+              CameraUpdate.newCameraPosition(
+                CameraPosition(
+                  target: _destination.position,
+                  zoom: 14.5,
+                  tilt: 50.0,
+                ),
+              ),
+            );
+          }
         );
       });
 
@@ -178,10 +157,6 @@ class _MapScreenState extends State<MapScreen> {
           .getDirections(origin: _origin.position, destination: pos);
       setState(() => _info = directions);
     }
-=======
-        title: Text("MNK"),
-      ),
-    );
->>>>>>> 12999e04bb84568bf5b31d40343363e6fcef33e4
+
   }
 }
