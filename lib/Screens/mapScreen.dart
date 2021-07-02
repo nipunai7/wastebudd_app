@@ -157,6 +157,5 @@ class _MapScreenState extends State<MapScreen> {
           .getDirections(origin: _origin.position, destination: pos);
       setState(() => _info = directions);
     }
-
   }
 }
