@@ -30,8 +30,9 @@ dependencies:
   flutter_polyline_points: ^0.2.6
   google_maps_flutter: ^2.0.2
   shared_preferences:
-
-
+  provider: 4.1.0
+  firebase_auth:
+  firebase_core:
   fluttertoast:
 
   image_picker:

@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:wastebudd_app/CustomWidgets/custom_Text.dart';
 import 'package:wastebudd_app/CustomWidgets/custom_TextFormField.dart';
+import 'package:provider/provider.dart';
+import 'auth_service.dart';
 
 import '../Screens/mapScreen.dart';
 
@@ -110,14 +112,15 @@ class _SignUpPageState extends State<SignUpPage> {
               //login Button
               FlatButton(
                   onPressed: () {
-                    // _formKey.currentState!.save();
-                    // if (_formKey.currentState!.validate()) {
-                    //
-                    // }
-                    Navigator.pushReplacement(
-                      context,
-                      MaterialPageRoute(builder: (context) => MapScreen()),
-                    );
+                    _formKey.currentState.save();
+                    if (_formKey.currentState.validate()) {
+                      print(_formKey.currentState.validate().toString()+"2");
+                    }
+                    context.read<AuthService>().login(_username.text.trim(), _password.text.trim());
+                    // Navigator.pushReplacement(
+                    //   context,
+                    //   MaterialPageRoute(builder: (context) => MapScreen()),
+                    // );
 
                   },
                   height: MediaQuery.of(context).size.height * .07,
