@@ -1,12 +1,10 @@
 
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 
 class Userbudd{
 
   static SharedPreferences sharedPreferences;
-  static FirebaseAuth auth;
 
   static final String userName = 'name';
   static final String jdate = 'jdate';

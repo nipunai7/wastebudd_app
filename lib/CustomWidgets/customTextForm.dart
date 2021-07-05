@@ -21,7 +21,7 @@ class CustomTextForm extends StatelessWidget
     return Container
       (
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: Colors.grey.shade200,
         borderRadius: BorderRadius.all(Radius.circular(10.0)),
       ),
       padding: EdgeInsets.all(8.0),
@@ -34,7 +34,7 @@ class CustomTextForm extends StatelessWidget
           border: InputBorder.none,
           prefixIcon: Icon(
             data,
-            color: Colors.deepPurple,
+            color: Colors.redAccent,
           ),
           focusColor: Theme.of(context).primaryColor,
           hintText: hintText,

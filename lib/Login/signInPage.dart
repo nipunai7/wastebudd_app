@@ -6,9 +6,15 @@ import 'package:wastebudd_app/CustomWidgets/custom_TextFormField.dart';
 
 import '../Screens/mapScreen.dart';
 
-class SignUpPage extends StatelessWidget {
+class SignUpPage extends StatefulWidget {
+  @override
+  _SignUpPageState createState() => _SignUpPageState();
+}
+
+class _SignUpPageState extends State<SignUpPage> {
   TextEditingController _username=TextEditingController();
   TextEditingController _password=TextEditingController();
+
   final GlobalKey<FormState> _formKey = new GlobalKey<FormState>();
 
   @override
@@ -17,7 +23,7 @@ class SignUpPage extends StatelessWidget {
       backgroundColor: Colors.redAccent,
       resizeToAvoidBottomInset: false,
       body: Padding(
-        padding: const EdgeInsets.only(top: 50.0),
+        padding: const EdgeInsets.only(top: 40.0),
         child: Container(
           height: MediaQuery.of(context).size.height,
           width: MediaQuery.of(context).size.width,

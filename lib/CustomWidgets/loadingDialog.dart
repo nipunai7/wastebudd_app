@@ -2,6 +2,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'loadingWidget.dart';
+
 class LoadingAlertDialog extends StatelessWidget
 {
   final String message;
