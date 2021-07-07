@@ -1,11 +1,14 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:wastebudd_app/CustomWidgets/customTextForm.dart';
 import 'package:provider/provider.dart';
+import 'package:wastebudd_app/Models/user.dart';
 import 'package:wastebudd_app/Screens/mapScreen.dart';
 import 'auth_service.dart';
 
@@ -122,10 +125,44 @@ class _RegisterState extends State<Register> {
                             if (cpass != password) {
                               Fluttertoast.showToast(
                                   msg: "Passwords does not match");
-                            }else{
-                              context.read<AuthService>().register(email, password);
-                              Fluttertoast.showToast(msg: "User added successfully");
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => MapScreen()));
+                            } else {
+                              context
+                                  .read<AuthService>()
+                                  .register(email, password)
+                                  .then((value) async {
+                                User user = FirebaseAuth.instance.currentUser;
+
+
+                                await FirebaseFirestore.instance
+                                    .collection('users')
+                                    .doc(user.uid)
+                                    .set({
+                                  "uid": user.uid,
+                                  "email": email,
+                                });
+
+                                // await Userbudd.sharedPreferences
+                                //     .setString(Userbudd.userUID, user.uid);
+                                // print(Userbudd.sharedPreferences.getString(Userbudd.userUID));
+                                // await Userbudd.sharedPreferences
+                                //     .setString("email", user.email);
+                                // await Userbudd.sharedPreferences.setString(
+                                //     Userbudd.userName,
+                                //     _nametextcontroller.text.trim());
+                                // await Userbudd.sharedPreferences
+                                //     .setString("url", userImgUrl);
+                                // await Userbudd.sharedPreferences.setStringList(
+                                //     Userbudd.userDustbinList, ["garbageValue"]);
+                                // await Userbudd.sharedPreferences.setString(
+                                //     "jdate", DateTime.now().toString());
+
+                              });
+                              Fluttertoast.showToast(
+                                  msg: "User added successfully");
+                              Navigator.pushReplacement(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (_) => MapScreen()));
                             }
                           }
                         }

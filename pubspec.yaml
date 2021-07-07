@@ -34,7 +34,7 @@ dependencies:
   firebase_auth:
   firebase_core:
   fluttertoast:
-
+  cloud_firestore:
   image_picker:
 
 

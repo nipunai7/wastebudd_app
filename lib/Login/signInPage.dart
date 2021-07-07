@@ -116,11 +116,13 @@ class _SignUpPageState extends State<SignUpPage> {
                     if (_formKey.currentState.validate()) {
                       print(_formKey.currentState.validate().toString()+"2");
                     }
-                    context.read<AuthService>().login(_username.text.trim(), _password.text.trim());
-                    // Navigator.pushReplacement(
-                    //   context,
-                    //   MaterialPageRoute(builder: (context) => MapScreen()),
-                    // );
+                    context.read<AuthService>().login(_username.text.trim(), _password.text.trim()).then((value) {
+                      Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(builder: (context) => MapScreen()),
+                      );
+                    });
+
 
                   },
                   height: MediaQuery.of(context).size.height * .07,
